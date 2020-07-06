@@ -36,11 +36,20 @@ jQuery.entwine("editlock", function($) {
 		},
 
 		showLockMessage: function(){
-			this.find('p.message').first().after('<p/>')
-				.addClass('message warning')
-				.css('overflow', 'hidden')
-				.html(this.data('lockedmessage'))
-				.show();
+			if ($('#Root_Main') != undefined && $('#Root_Main') != null) {
+				//clear the existing edit lock message
+				if ($('#editlock-message') != null && $('#editlock-message') != undefined) {
+					$('#editlock-message').remove()
+				}
+
+				$('#Root_Main').prepend("<div id='editlock-message' class='alert alert-warning'>" + this.data('lockedmessage') + "</div>")
+			} else {
+				this.find('p.message').first().after('<p/>')
+					.addClass('message warning')
+					.css('overflow', 'hidden')
+					.html(this.data('lockedmessage'))
+					.show();
+			}
 		}
 	});
 });

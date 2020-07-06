@@ -49,8 +49,8 @@ class RecordBeingEdited extends DataObject implements PermissionProvider
             $editorString .= " &lt;<a href='mailto:$editor->Email'>$editor->Email</a>&gt;";
         }
         $message = sprintf(
-            _t(__CLASS__ . '.LOCKEDMESSAGE', 'Sorry, this %s is currently being edited by %s. To avoid conflicts and data loss, editing will be locked until they are finished.'),
-            FormField::name_to_label($this->RecordClass),
+            _t(__CLASS__ . '.LOCKEDMESSAGE', 'Sorry, this record is currently being edited by %s. To avoid conflicts and data loss, editing will be locked until they are finished.'),
+            //FormField::name_to_label($this->RecordClass),
             $editorString
         );
 
